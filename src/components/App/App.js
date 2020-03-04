@@ -14,6 +14,8 @@ import NameYourAssistant from "../NameYourAssistans/NameYourAssistant";
 import SelectStyles from "../SelectStyles/SelectStyles";
 import CreateYourAccount from "../CreateYourAccount";
 import SuccessfulSetup from "../SuccessfulSetup";
+import SignIn from "../SignIn";
+import LoggedInView from "../LoggedInView";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
                 <Route path="/second-step" exact component={SelectStyles} />
                 <Route path="/third-step" exact component={CreateYourAccount} />
                 <Route path="/forth-step" exact component={SuccessfulSetup} />
+                <Route path="/signin" exact component={SignIn} />
+                <Route path="/profile" exact component={LoggedInView} />
               </Main>
               <Route component={NotFound} />
             </Switch>

@@ -1,8 +1,11 @@
 import React from "react";
 
 import "./Sidebar.scss";
-import Header from "../Header/Header";
+
+import Header from "../Header";
 import List from "../List";
+
+import logo from "../../assets/hoory logo white.png";
 
 function Sidebar(props) {
   return (
@@ -10,7 +13,7 @@ function Sidebar(props) {
       <div>
         <Header />
         <List />
-      </div>{" "}
+      </div>
     </div>
   );
 }

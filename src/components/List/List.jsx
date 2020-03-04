@@ -9,15 +9,15 @@ function List(props) {
     <div className="List">
       <ul>
         <li>
-          <img src={step} />
+          <img src={step} alt="Step circle" />
           <span>Name your assistant</span>
         </li>
         <li>
-          <img src={step} />
+          <img src={step} alt="Step circle" />
           <span>Select styles</span>
         </li>
         <li>
-          <img src={step} />
+          <img src={step} alt="Step circle" />
           <span>Create your account</span>
         </li>
       </ul>
