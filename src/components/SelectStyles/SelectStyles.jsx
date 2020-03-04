@@ -1,22 +1,11 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 
 import "./SelectStyles.scss";
 
-import female_logo from "../../assets/logos/female-1.svg";
-import male_logo from "../../assets/logos/male-1.svg";
-
-import selected_female_logo from "../../assets/logos/female-selected-1.svg";
-import selected_male_logo from "../../assets/logos/male-selected-1.svg";
-
-import {
-  nextStep,
-  setAssistantGender, setAssistantName,
-  setSchemeColor
-} from "../../redux/actions";
+import getCurrentSchemeIcons from "../../helpers/getCurrentSchemeIcons";
 
 const colorSchemes = [
-  { color: "blue", isActive: false },
+  { color: "blue", isActive: true },
   { color: "green", isActive: false },
   { color: "orange", isActive: false },
   { color: "red", isActive: false },
@@ -28,11 +17,13 @@ const colorSchemes = [
 class SelectStyles extends Component {
   state = {
     assistantGender: "",
-    colorScheme: ""
+    colorScheme: "blue"
   };
+
   onGenderChange(assistantGender) {
     this.setState({ assistantGender });
   }
+
   onColorSchemeChange(colorScheme) {
     colorSchemes.forEach(item => {
       if (item.color === colorScheme) {
@@ -43,17 +34,26 @@ class SelectStyles extends Component {
     });
     this.setState({ colorScheme });
   }
+
   onClickNext = () => {
     const { assistantGender, colorScheme } = this.state;
+    const { setGender, setColor, nextStep } = this.props;
 
-    this.props.setGender(assistantGender);
-    this.props.setColor(colorScheme);
-    this.props.nextStep();
+    setGender(assistantGender);
+    setColor(colorScheme);
+    nextStep();
   };
 
   render() {
     const { assistantName } = this.props;
-    const { assistantGender } = this.state;
+    const { assistantGender, colorScheme } = this.state;
+
+    const {
+      female_logo,
+      male_logo,
+      selected_female_logo,
+      selected_male_logo
+    } = getCurrentSchemeIcons(colorScheme);
 
     const femaleLogo =
       assistantGender === "female" ? selected_female_logo : female_logo;
@@ -98,18 +98,5 @@ class SelectStyles extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  step: state.step,
-  assistantName: state.assistantName,
-  assistantGender: state.assistantGender,
-  error: state.error,
-  loading: state.loading
-});
-const mapDispatchToProps = dispatch => ({
-  nextStep: () => dispatch(nextStep),
-  setGender: gender => dispatch(setAssistantGender(gender)),
-  setColor: color => dispatch(setSchemeColor(color))
-});
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(SelectStyles);
+export default SelectStyles;

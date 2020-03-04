@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 
 import "./NameYourAssistant.scss";
 
-import logo from "../../../src/assets/hoory icon grey.svg";
-import text_logo from "../../assets/hoory text.svg";
-import { setAssistantName, nextStep } from "../../redux/actions";
+import icon from "../../../src/assets/hoory icon grey.svg";
+import text_icon from "../../assets/hoory text.svg";
 
 class NameYourAssistant extends Component {
   state = {
@@ -16,16 +14,19 @@ class NameYourAssistant extends Component {
   };
   onStart = _ => {
     const { assistantName } = this.state;
-    this.props.setName(assistantName);
-    this.props.nextStep();
+    const { setName, nextStep } = this.props;
+
+    setName(assistantName);
+    nextStep();
   };
   render() {
     const { assistantName } = this.state;
+
     return (
       <div className="NameYourAssistant">
-        <div className="logos">
-          <img src={logo} alt="Logo" />
-          <img src={text_logo} alt="Text logo" />
+        <div className="icons">
+          <img src={icon} alt="Hoory Icon" />
+          <img src={text_icon} alt="Text icon" />
         </div>
         <h3>Name your assistant</h3>
         <div className="set-name">
@@ -43,12 +44,5 @@ class NameYourAssistant extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  assistantName: state.assistantName,
-});
-const mapDispatchToProps = dispatch => ({
-  nextStep: name => dispatch(nextStep),
-  setName: name => dispatch(setAssistantName(name))
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(NameYourAssistant);
+export default NameYourAssistant;

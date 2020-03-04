@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
 
 import "./CreateYourAccount.scss";
-
-import { nextStep, signUpAssistant } from "../../redux/actions";
 
 import google_icon from "../../assets/google icon.svg";
 import password_visibility_icon from "../../assets/password visibility.svg";
@@ -25,14 +22,17 @@ class CreateYourAccount extends Component {
   };
   onSignUp = e => {
     e.preventDefault();
+
     const { signUp, nextStep } = this.props;
     const { firstName, lastName, email, password } = this.state;
     const assistant = { firstName, lastName, email, password };
+
     signUp(assistant);
     nextStep();
   };
   render() {
     const { isVisible, firstName, lastName, email, password } = this.state;
+
     return (
       <div className="CreateYourAccount">
         <h3>Create your account</h3>
@@ -101,15 +101,5 @@ class CreateYourAccount extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  step: state.step,
-  error: state.error,
-  loading: state.loading
-});
-const mapDispatchToProps = dispatch => ({
-  nextStep: () => dispatch(nextStep),
-  signUp: assistant => dispatch(signUpAssistant(assistant))
-});
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(CreateYourAccount);
+export default CreateYourAccount;
