@@ -1,0 +1,38 @@
+.NameYourAssistant{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 60%;
+  >.logos {
+    margin-bottom: 30px;
+    img {
+      display: block;
+      width: 100px;
+    }
+  }
+  .set-name{
+    width: 60%;
+    text-align: center;
+    >input{
+      text-align: center;
+      width: 100%;
+      height: 20px;
+      padding: 10px 0;
+      border-radius: 5px;
+      background-color: #f7f7fa;
+      border: 1px solid #f7f7fa;
+      font-size: 20px;
+    }
+  }
+  .start-btn{
+    background-color: #00c67b;
+    padding: 10px 50px;
+    border-radius: 20px;
+    border: #00c67b;
+    cursor: pointer;
+    margin-top: 30px;
+    color: #fff;
+    font-size: 12px;
+    box-shadow: 1px 1px 7px #00c67b8f;
+  }
+}

@@ -1,0 +1,81 @@
+.SelectStyles{
+  text-align: center;
+  .set-icon{
+    h3{
+      margin-bottom: 30px;
+    }
+    img{
+      cursor: pointer;
+    }
+  }
+  .set-color{
+    .color-schemes{
+      display: flex;
+      height: 4em;
+      .color-scheme{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin: 0 10px;
+        padding: 5px;
+        cursor: pointer;
+      }
+      .color-scheme:hover{
+        background-clip: content-box;
+      }
+      .color-scheme-blue{
+        background-image: linear-gradient(#6322fb, #673dfb);
+      }
+      .color-scheme-blue:hover{
+        border: 2px solid #6322fb;
+      }
+      .color-scheme-green{
+        background-image: linear-gradient(#68b131, #95d444);
+      }
+      .color-scheme-green:hover{
+        border: 2px solid #68b131;
+      }
+      .color-scheme-orange{
+        background-image: linear-gradient(#f89939, #fabf51);
+      }
+      .color-scheme-orange:hover{
+        border: 2px solid #f89939;
+      }
+      .color-scheme-red{
+        background-image: linear-gradient(#ba1c31, #e44252);
+      }
+      .color-scheme-red:hover{
+        border: 2px solid #ba1c31;
+      }
+      .color-scheme-purple{
+        background-image: linear-gradient(#5635b8, #9e59cc);
+      }
+      .color-scheme-purple:hover{
+        border: 2px solid #5635b8;
+      }
+      .color-scheme-pink{
+        background-image: linear-gradient(#8f29c7, #cd4f82);
+      }
+      .color-scheme-pink:hover{
+        border: 2px solid #8f29c7;
+      }
+      .color-scheme-light-blue{
+        background-image: linear-gradient(#197ddf, #53b9f6)
+      }
+      .color-scheme-light-blue:hover{
+        border: 2px solid #197ddf;
+      }
+    }
+  }
+  .next-btn{
+    background-color: #00c67b;
+    padding: 12px 50px;
+    border-radius: 20px;
+    border: #00c67b;
+    cursor: pointer;
+    margin-top: 30px;
+    color: #fff;
+    font-size: 12px;
+    box-shadow: 1px 1px 7px #00c67b8f;
+  }
+}

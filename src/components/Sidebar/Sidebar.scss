@@ -1,0 +1,10 @@
+.Sidebar {
+  width: 20%;
+  background-color: #6636fb;
+  >div{
+    position: fixed;
+    height: 100vh;
+    width: inherit;
+  }
+}
+
