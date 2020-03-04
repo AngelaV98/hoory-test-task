@@ -29,7 +29,12 @@ import selected_female_logo_light_blue from "../assets/logos/female-selected-7.s
 import selected_male_logo_light_blue from "../assets/logos/male-selected-7.svg";
 
 function getCurrentSchemeIcons(colorScheme) {
-  let color;
+  let color = [
+    female_logo_blue,
+    male_logo_blue,
+    selected_female_logo_blue,
+    selected_male_logo_blue
+  ];
   switch (colorScheme) {
     case "blue":
       color = [

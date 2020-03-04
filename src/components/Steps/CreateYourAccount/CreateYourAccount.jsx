@@ -3,16 +3,20 @@ import { Link } from "react-router-dom";
 
 import "./CreateYourAccount.scss";
 
-import google_icon from "../../assets/google icon.svg";
-import password_visibility_icon from "../../assets/password visibility.svg";
+import Validator from "../../../helpers/Validator";
+
+import google_icon from "../../../assets/google icon.svg";
+import password_visibility_icon from "../../../assets/password visibility.svg";
 
 class CreateYourAccount extends Component {
+  validator = new Validator();
   state = {
     isVisible: false,
     firstName: "",
     lastName: "",
     email: "",
-    password: ""
+    password: "",
+    isError: false
   };
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -27,11 +31,32 @@ class CreateYourAccount extends Component {
     const { firstName, lastName, email, password } = this.state;
     const assistant = { firstName, lastName, email, password };
 
-    signUp(assistant);
-    nextStep();
+    const { isEmpty, isEmail, isString } = this.validator;
+
+    if (
+      !isEmpty(firstName) &&
+      !isEmpty(lastName) &&
+      !isEmpty(email) &&
+      !isEmpty(password) &&
+      isString(firstName) &&
+      isString(lastName) &&
+      isEmail(email)
+    ) {
+      signUp(assistant);
+      nextStep();
+    } else {
+      this.setState({ isError: true });
+    }
   };
   render() {
-    const { isVisible, firstName, lastName, email, password } = this.state;
+    const {
+      isVisible,
+      firstName,
+      lastName,
+      email,
+      password,
+      isError
+    } = this.state;
 
     return (
       <div className="CreateYourAccount">
@@ -93,6 +118,7 @@ class CreateYourAccount extends Component {
             By registering an account with us you agree to the PP and T&C.
           </p>
           <button type="submit">Create account</button>
+          <h5 style={{ color: "red" }}>{isError ? "Something went wrong" : ""}</h5>
           <p>
             Have an account? <Link to="/signin">Sign In</Link>
           </p>

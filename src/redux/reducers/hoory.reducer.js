@@ -47,14 +47,14 @@ function hooryReducer(state = initialState, { type, payload, error }) {
     case SIGN_UP_ASSISTANT: {
       return {
         ...state,
-        assistant: payload.assistant
+        assistant: payload.assistant,
+        isLoggedIn: true
       };
     }
     case SIGN_IN_ASSISTANT: {
       return {
         ...state,
-        isLoggedIn: true,
-        assistant: payload.assistant
+        isLoggedIn: true
       };
     }
     default:

@@ -6,16 +6,15 @@ import "./App.scss";
 
 import store from "../../redux/store";
 
-import PrivateRoute from "../common/PrivateRoute";
+import PrivateRoute from "../common/PrivateRoute/";
 
-import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
-import NotFound from "../NotFound/";
+import ErrorBoundary from "../common/ErrorBoundary/ErrorBoundary";
+import NotFound from "../common/NotFound/";
 
 import Sidebar from "../Sidebar";
 import Steps from "../Steps";
 import SignIn from "../SignIn";
 import LoggedInView from "../LoggedInView";
-
 
 function App() {
   return (

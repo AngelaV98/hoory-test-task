@@ -2,7 +2,7 @@ import React from "react";
 
 import "./ErrorIndicator.scss";
 
-import error from "../../assets/error.png";
+import error from "../../../assets/error.png";
 
 const ErrorIndicator = () => {
   return (

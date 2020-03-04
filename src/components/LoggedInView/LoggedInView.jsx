@@ -1,21 +1,40 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import "./LoggedInView.scss";
 
-import icon from "../../assets/logos/female-1.svg";
-import text_logo from "../../assets/hoory text.svg";
+import getCurrentSchemeIcons from "../../helpers/getCurrentSchemeIcons";
 
-function LoggedInView(props) {
+function LoggedInView({
+  assistant: { firstName, lastName, email },
+  schemeColor,
+  assistantName,
+  assistantGender
+}) {
+
+  const { female_logo, male_logo } = getCurrentSchemeIcons(schemeColor);
+  const icon = assistantGender === "female" ? female_logo : male_logo;
+
   return (
     <div className="LoggedInView">
       <div className="icons">
         <img src={icon} alt="Hoory icon" />
-        <img src={text_logo} alt="Text logo" />
+        <h3>{assistantName}</h3>
       </div>
-      <h3>Name Surname</h3>
-      <p>example@gmail.com</p>
+      <h3>
+        {firstName}
+        {lastName}
+      </h3>
+      <p>{email}</p>
     </div>
   );
 }
 
-export default LoggedInView;
+const mapStateToProps = state => ({
+  assistant: state.assistant,
+  schemeColor: state.schemeColor,
+  assistantName: state.assistantName,
+  assistantGender: state.assistantGender
+});
+
+export default connect(mapStateToProps)(LoggedInView);

@@ -2,7 +2,9 @@ import React, { Component } from "react";
 
 import "./SelectStyles.scss";
 
-import getCurrentSchemeIcons from "../../helpers/getCurrentSchemeIcons";
+import getCurrentSchemeIcons from "../../../helpers/getCurrentSchemeIcons";
+
+import Validator from "../../../helpers/Validator";
 
 const colorSchemes = [
   { color: "blue", isActive: true },
@@ -15,9 +17,11 @@ const colorSchemes = [
 ];
 
 class SelectStyles extends Component {
+  validator = new Validator();
   state = {
     assistantGender: "",
-    colorScheme: "blue"
+    colorScheme: "blue",
+    isError: false
   };
 
   onGenderChange(assistantGender) {
@@ -38,15 +42,21 @@ class SelectStyles extends Component {
   onClickNext = () => {
     const { assistantGender, colorScheme } = this.state;
     const { setGender, setColor, nextStep } = this.props;
-
-    setGender(assistantGender);
-    setColor(colorScheme);
-    nextStep();
+    if (
+      !this.validator.isEmpty(colorScheme) &&
+      !this.validator.isEmpty(assistantGender)
+    ) {
+      setGender(assistantGender);
+      setColor(colorScheme);
+      nextStep();
+    } else {
+      this.setState({ isError: true });
+    }
   };
 
   render() {
     const { assistantName } = this.props;
-    const { assistantGender, colorScheme } = this.state;
+    const { assistantGender, colorScheme, isError } = this.state;
 
     const {
       female_logo,
@@ -94,6 +104,7 @@ class SelectStyles extends Component {
         <button type="button" className="next-btn" onClick={this.onClickNext}>
           Next
         </button>
+        <h5 style={{ color: "red" }}>{isError ? "Something went wrong" : ""}</h5>
       </div>
     );
   }

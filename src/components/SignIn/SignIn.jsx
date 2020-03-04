@@ -6,14 +6,18 @@ import "./SignIn.scss";
 
 import { signInAssistant } from "../../redux/actions";
 
+import Validator from "../../helpers/Validator";
+
 import google_icon from "../../assets/google icon.svg";
 import password_visibility_icon from "../../assets/password visibility.svg";
 
 class SignIn extends Component {
+  validator = new Validator();
   state = {
     isVisible: false,
     email: "",
-    password: ""
+    password: "",
+    isError: false
   };
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -21,18 +25,24 @@ class SignIn extends Component {
   onMakePasswordVisible = e => {
     this.setState(({ isVisible }) => ({ isVisible: !isVisible }));
   };
-
   onSignIn = e => {
     e.preventDefault();
     const { signIn } = this.props;
     const { email, password } = this.state;
     const assistant = { email, password };
-    signIn(assistant);
-    this.props.history.push("/profile");
+
+    const { isEmail, isEmpty } = this.validator;
+    if (!isEmpty(email) && isEmail(email) && !isEmpty(password)) {
+      signIn(assistant);
+      this.props.history.push("/profile");
+    } else {
+      this.setState({ isError: true });
+    }
   };
 
   render() {
-    const { isVisible, email, password } = this.state;
+    const { isVisible, email, password, isError } = this.state;
+
     return (
       <div className="CreateYourAccount">
         <h3>Sign in to your account</h3>
@@ -70,6 +80,7 @@ class SignIn extends Component {
             />
           </div>
           <button type="submit">Sign In</button>
+          <h5 style={{ color: "red" }}>{isError ? "Something went wrong" : ""}</h5>
           <p>
             Don't have an account? <Link to="/">Sign Up</Link>
           </p>
@@ -81,7 +92,9 @@ class SignIn extends Component {
     );
   }
 }
+
 const mapDispatchToProps = dispatch => ({
   signIn: assistant => dispatch(signInAssistant(assistant))
 });
+
 export default connect(null,mapDispatchToProps)(SignIn);

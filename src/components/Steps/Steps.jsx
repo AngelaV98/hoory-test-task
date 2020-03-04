@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 
 import "./Steps.scss";
 
-import NameYourAssistant from "../NameYourAssistans/NameYourAssistant";
-import SelectStyles from "../SelectStyles/SelectStyles";
-import CreateYourAccount from "../CreateYourAccount";
-import SuccessfulSetup from "../SuccessfulSetup";
+import NameYourAssistant from "./NameYourAssistans/NameYourAssistant";
+import SelectStyles from "./SelectStyles/SelectStyles";
+import CreateYourAccount from "./CreateYourAccount";
+import SuccessfulSetup from "./SuccessfulSetup";
 import {
   nextStep,
   setAssistantGender,
@@ -43,7 +43,7 @@ function Steps({
       content = <CreateYourAccount nextStep={nextStep} signUp={signUp} />;
       break;
     case 4:
-      content = <SuccessfulSetup />;
+      content = <SuccessfulSetup assistantName={assistantName} />;
       break;
   }
   return <div className="Steps">{content}</div>;
@@ -52,9 +52,7 @@ function Steps({
 const mapStateToProps = state => ({
   assistantName: state.assistantName,
   assistantGender: state.assistantGender,
-  step: state.step,
-  error: state.error,
-  loading: state.loading
+  step: state.step
 });
 const mapDispatchToProps = dispatch => ({
   nextStep: _ => dispatch(nextStep),

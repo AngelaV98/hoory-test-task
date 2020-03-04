@@ -2,12 +2,16 @@ import React, { Component } from "react";
 
 import "./NameYourAssistant.scss";
 
-import icon from "../../../src/assets/hoory icon grey.svg";
-import text_icon from "../../assets/hoory text.svg";
+import icon from "../../../assets/hoory icon grey.svg";
+import text_icon from "../../../assets/hoory text.svg";
+
+import Validator from "../../../helpers/Validator";
 
 class NameYourAssistant extends Component {
+  validator = new Validator();
   state = {
-    assistantName: ""
+    assistantName: "",
+    isError: false
   };
   onChange = e => {
     this.setState({ assistantName: e.target.value });
@@ -16,11 +20,15 @@ class NameYourAssistant extends Component {
     const { assistantName } = this.state;
     const { setName, nextStep } = this.props;
 
-    setName(assistantName);
-    nextStep();
+    if (!this.validator.isEmpty(assistantName)) {
+      setName(assistantName);
+      nextStep();
+    } else {
+      this.setState({ isError: true });
+    }
   };
   render() {
-    const { assistantName } = this.state;
+    const { assistantName, isError } = this.state;
 
     return (
       <div className="NameYourAssistant">
@@ -40,6 +48,7 @@ class NameYourAssistant extends Component {
         <button type="button" className="start-btn" onClick={this.onStart}>
           Start
         </button>
+          <h5 style={{ color: "red" }}>{isError ? "Something went wrong" : ""}</h5>
       </div>
     );
   }
