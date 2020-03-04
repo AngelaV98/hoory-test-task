@@ -6,12 +6,16 @@ import "./App.scss";
 
 import store from "../../redux/store";
 
-import Sidebar from "../Sidebar";
-import Steps from "../Steps";
+import PrivateRoute from "../common/PrivateRoute";
+
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import NotFound from "../NotFound/";
+
+import Sidebar from "../Sidebar";
+import Steps from "../Steps";
 import SignIn from "../SignIn";
 import LoggedInView from "../LoggedInView";
+
 
 function App() {
   return (
@@ -19,11 +23,11 @@ function App() {
       <ErrorBoundary>
         <Provider store={store}>
           <Router>
-            <Route path="/" component={Sidebar} />
+            <Route path="/" exact component={Sidebar} />
             <Switch>
               <Route path="/" exact component={Steps} />
               <Route path="/signin" exact component={SignIn} />
-              <Route path="/profile" exact component={LoggedInView} />
+              <PrivateRoute path="/profile" exact component={LoggedInView} />
               <Route component={NotFound} />
             </Switch>
           </Router>

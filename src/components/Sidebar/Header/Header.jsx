@@ -2,9 +2,9 @@ import React from "react";
 
 import "./Header.scss";
 
-import logo from "../../assets/hoory logo white.png";
+import logo from "../../../assets/hoory logo white.png";
 
-function Header(props) {
+function Header() {
   return (
     <div className="Header">
       <div className="logo">

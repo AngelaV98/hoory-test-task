@@ -4,17 +4,35 @@ import { connect } from "react-redux";
 
 import "./CreateYourAccount.scss";
 
-import { nextStep } from "../../redux/actions";
+import { nextStep, signUpAssistant } from "../../redux/actions";
 
 import google_icon from "../../assets/google icon.svg";
 import password_visibility_icon from "../../assets/password visibility.svg";
 
 class CreateYourAccount extends Component {
+  state = {
+    isVisible: false,
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: ""
+  };
+  onChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+  onMakePasswordVisible = e => {
+    this.setState(({ isVisible }) => ({ isVisible: !isVisible }));
+  };
   onSignUp = e => {
     e.preventDefault();
-    this.props.nextStep();
+    const { signUp, nextStep } = this.props;
+    const { firstName, lastName, email, password } = this.state;
+    const assistant = { firstName, lastName, email, password };
+    signUp(assistant);
+    nextStep();
   };
   render() {
+    const { isVisible, firstName, lastName, email, password } = this.state;
     return (
       <div className="CreateYourAccount">
         <h3>Create your account</h3>
@@ -30,20 +48,45 @@ class CreateYourAccount extends Component {
         <form method="post" onSubmit={this.onSignUp}>
           <div className="full-name">
             <div>
-              <input type="text" name="firstName" placeholder="First Name" />
+              <input
+                type="text"
+                name="firstName"
+                placeholder="First Name"
+                onChange={this.onChange}
+                value={firstName}
+              />
             </div>
             <div>
-              <input type="text" name="lastName" placeholder="Last Name" />
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Last Name"
+                onChange={this.onChange}
+                value={lastName}
+              />
             </div>
           </div>
           <div className="email">
-            <input type="email" name="email" placeholder="Email" />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              onChange={this.onChange}
+              value={email}
+            />
           </div>
           <div className="password">
-            <input type="password" name="password" placeholder="Password" />
+            <input
+              type={`${isVisible ? "text" : "password"}`}
+              name="password"
+              placeholder="Password"
+              onChange={this.onChange}
+              value={password}
+            />
             <img
               src={password_visibility_icon}
               alt="Password visibility icon"
+              onClick={this.onMakePasswordVisible}
             />
           </div>
           <p className="policy">
@@ -64,7 +107,9 @@ const mapStateToProps = state => ({
   loading: state.loading
 });
 const mapDispatchToProps = dispatch => ({
-  nextStep: () => dispatch(nextStep)
+  nextStep: () => dispatch(nextStep),
+  signUp: assistant => dispatch(signUpAssistant(assistant))
 });
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateYourAccount);

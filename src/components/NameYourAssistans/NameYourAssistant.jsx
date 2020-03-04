@@ -20,6 +20,7 @@ class NameYourAssistant extends Component {
     this.props.nextStep();
   };
   render() {
+    const { assistantName } = this.state;
     return (
       <div className="NameYourAssistant">
         <div className="logos">
@@ -28,7 +29,12 @@ class NameYourAssistant extends Component {
         </div>
         <h3>Name your assistant</h3>
         <div className="set-name">
-          <input type="text" onChange={this.onChange} autoFocus />
+          <input
+            type="text"
+            onChange={this.onChange}
+            value={assistantName}
+            autoFocus
+          />
         </div>
         <button type="button" className="start-btn" onClick={this.onStart}>
           Start
@@ -39,8 +45,6 @@ class NameYourAssistant extends Component {
 }
 const mapStateToProps = state => ({
   assistantName: state.assistantName,
-  error: state.error,
-  loading: state.loading
 });
 const mapDispatchToProps = dispatch => ({
   nextStep: name => dispatch(nextStep),

@@ -2,17 +2,17 @@ import React from "react";
 
 import "./Sidebar.scss";
 
-import Header from "../Header";
-import List from "../List";
+import Header from "./Header";
+import List from "./List";
 
-function Sidebar(props) {
+function Sidebar() {
   return (
-    <div className="Sidebar">
+    <nav className="Sidebar">
       <div>
         <Header />
         <List />
       </div>
-    </div>
+    </nav>
   );
 }
 
