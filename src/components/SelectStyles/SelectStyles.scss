@@ -20,49 +20,49 @@
         padding: 5px;
         cursor: pointer;
       }
-      .color-scheme:hover{
+      .color-scheme:hover,.color-scheme-active{
         background-clip: content-box;
       }
       .color-scheme-blue{
         background-image: linear-gradient(#6322fb, #673dfb);
       }
-      .color-scheme-blue:hover{
+      .color-scheme-blue:hover,.color-scheme-blue-active{
         border: 2px solid #6322fb;
       }
       .color-scheme-green{
         background-image: linear-gradient(#68b131, #95d444);
       }
-      .color-scheme-green:hover{
+      .color-scheme-green:hover,.color-scheme-green-active{
         border: 2px solid #68b131;
       }
       .color-scheme-orange{
         background-image: linear-gradient(#f89939, #fabf51);
       }
-      .color-scheme-orange:hover{
+      .color-scheme-orange:hover,.color-scheme-orange-active{
         border: 2px solid #f89939;
       }
       .color-scheme-red{
         background-image: linear-gradient(#ba1c31, #e44252);
       }
-      .color-scheme-red:hover{
+      .color-scheme-red:hover, .color-scheme-red-active{
         border: 2px solid #ba1c31;
       }
       .color-scheme-purple{
         background-image: linear-gradient(#5635b8, #9e59cc);
       }
-      .color-scheme-purple:hover{
+      .color-scheme-purple:hover, .color-scheme-purple-active{
         border: 2px solid #5635b8;
       }
       .color-scheme-pink{
         background-image: linear-gradient(#8f29c7, #cd4f82);
       }
-      .color-scheme-pink:hover{
+      .color-scheme-pink:hover, .color-scheme-pink-active{
         border: 2px solid #8f29c7;
       }
       .color-scheme-light-blue{
         background-image: linear-gradient(#197ddf, #53b9f6)
       }
-      .color-scheme-light-blue:hover{
+      .color-scheme-light-blue:hover, .color-scheme-light-blue-active{
         border: 2px solid #197ddf;
       }
     }

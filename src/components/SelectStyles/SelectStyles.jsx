@@ -76,16 +76,12 @@ class SelectStyles extends Component {
             {colorSchemes.map(({ color, isActive }) => (
               <div
                 key={color}
-                className={`color-scheme color-scheme-${color}`}
-                onClick={() => this.onColorSchemeChange(color)}
-                style={
+                className={`color-scheme color-scheme-${color} ${
                   isActive
-                    ? {
-                        backgroundClip: "content-box",
-                        border: `2px solid ${color}`
-                      }
-                    : {}
-                }
+                    ? `color-scheme-active color-scheme-${color}-active`
+                    : ""
+                }`}
+                onClick={() => this.onColorSchemeChange(color)}
               />
             ))}
           </div>
