@@ -5,7 +5,7 @@ import "./NameYourAssistant.scss";
 
 import logo from "../../../src/assets/hoory icon grey.svg";
 import text_logo from "../../assets/hoory text.svg";
-import { setAssistantName } from "../../redux/actions";
+import { setAssistantName, nextStep } from "../../redux/actions";
 
 class NameYourAssistant extends Component {
   state = {
@@ -17,7 +17,7 @@ class NameYourAssistant extends Component {
   onStart = _ => {
     const { assistantName } = this.state;
     this.props.setName(assistantName);
-    this.props.history.push("/second-step");
+    this.props.nextStep();
   };
   render() {
     return (
@@ -43,6 +43,7 @@ const mapStateToProps = state => ({
   loading: state.loading
 });
 const mapDispatchToProps = dispatch => ({
+  nextStep: name => dispatch(nextStep),
   setName: name => dispatch(setAssistantName(name))
 });
 

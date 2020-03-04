@@ -9,7 +9,11 @@ import male_logo from "../../assets/logos/male-1.svg";
 import selected_female_logo from "../../assets/logos/female-selected-1.svg";
 import selected_male_logo from "../../assets/logos/male-selected-1.svg";
 
-import { setAssistantGender, setSchemeColor } from "../../redux/actions";
+import {
+  nextStep,
+  setAssistantGender, setAssistantName,
+  setSchemeColor
+} from "../../redux/actions";
 
 const colorSchemes = [
   { color: "blue", isActive: false },
@@ -44,7 +48,7 @@ class SelectStyles extends Component {
 
     this.props.setGender(assistantGender);
     this.props.setColor(colorScheme);
-    this.props.history.push("/third-step");
+    this.props.nextStep();
   };
 
   render() {
@@ -95,12 +99,14 @@ class SelectStyles extends Component {
   }
 }
 const mapStateToProps = state => ({
+  step: state.step,
   assistantName: state.assistantName,
   assistantGender: state.assistantGender,
   error: state.error,
   loading: state.loading
 });
 const mapDispatchToProps = dispatch => ({
+  nextStep: () => dispatch(nextStep),
   setGender: gender => dispatch(setAssistantGender(gender)),
   setColor: color => dispatch(setSchemeColor(color))
 });

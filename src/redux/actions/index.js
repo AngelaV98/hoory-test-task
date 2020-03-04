@@ -1,9 +1,13 @@
 import {
+  NEXT_STEP,
   SET_ASSISTANT_NAME,
   SET_ASSISTANT_GENDER,
   SET_SCHEME_COLOR
 } from "../constants";
 
+const nextStep = {
+  type: NEXT_STEP
+};
 const setAssistantName = assistantName => ({
   type: SET_ASSISTANT_NAME,
   payload: { assistantName }
@@ -17,4 +21,4 @@ const setSchemeColor = schemeColor => ({
   payload: { schemeColor }
 });
 
-export { setAssistantName, setAssistantGender, setSchemeColor };
+export { nextStep, setAssistantName, setAssistantGender, setSchemeColor };

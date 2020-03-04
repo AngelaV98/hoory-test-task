@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import "./CreateYourAccount.scss";
+
+import { nextStep } from "../../redux/actions";
 
 import google_icon from "../../assets/google icon.svg";
 import password_visibility_icon from "../../assets/password visibility.svg";
@@ -9,7 +12,7 @@ import password_visibility_icon from "../../assets/password visibility.svg";
 class CreateYourAccount extends Component {
   onSignUp = e => {
     e.preventDefault();
-    this.props.history.push("/forth-step");
+    this.props.nextStep();
   };
   render() {
     return (
@@ -55,6 +58,13 @@ class CreateYourAccount extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  step: state.step,
+  error: state.error,
+  loading: state.loading
+});
+const mapDispatchToProps = dispatch => ({
+  nextStep: () => dispatch(nextStep)
+});
 
-
-export default CreateYourAccount;
+export default connect(mapStateToProps, mapDispatchToProps)(CreateYourAccount);

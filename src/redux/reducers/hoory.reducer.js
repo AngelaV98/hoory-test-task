@@ -1,10 +1,12 @@
 import {
+  NEXT_STEP,
   SET_ASSISTANT_GENDER,
   SET_ASSISTANT_NAME,
   SET_SCHEME_COLOR
 } from "../constants";
 
 const initialState = {
+  step: 1,
   assistantName: "",
   assistantGender: "",
   schemeColor: "",
@@ -14,6 +16,12 @@ const initialState = {
 
 function hooryReducer(state = initialState, { type, payload, error }) {
   switch (type) {
+    case NEXT_STEP: {
+      return {
+        ...state,
+        step: ++state.step
+      };
+    }
     case SET_ASSISTANT_NAME: {
       return {
         ...state,
