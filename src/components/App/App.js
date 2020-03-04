@@ -12,6 +12,8 @@ import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import NotFound from "../NotFound/";
 import NameYourAssistant from "../NameYourAssistans/NameYourAssistant";
 import SelectStyles from "../SelectStyles/SelectStyles";
+import CreateYourAccount from "../CreateYourAccount";
+import SuccessfulSetup from "../SuccessfulSetup";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
               <Main>
                 <Route path="/" exact component={NameYourAssistant} />
                 <Route path="/second-step" exact component={SelectStyles} />
+                <Route path="/third-step" exact component={CreateYourAccount} />
+                <Route path="/forth-step" exact component={SuccessfulSetup} />
               </Main>
               <Route component={NotFound} />
             </Switch>

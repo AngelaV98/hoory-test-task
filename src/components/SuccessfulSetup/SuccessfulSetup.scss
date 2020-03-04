@@ -1,0 +1,24 @@
+.SuccessfulSetup{
+  width: 45%;
+  text-align: center;
+  h3{
+    text-align: center;
+    img{
+      width: 25px;
+      vertical-align: sub;
+    }
+  }
+  p{
+    text-align: center;
+  }
+  button{
+    background-color: #00c67b;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 1px solid #00c67b;
+    box-shadow: 1px 1px 7px #00c67b8f;
+  }
+}

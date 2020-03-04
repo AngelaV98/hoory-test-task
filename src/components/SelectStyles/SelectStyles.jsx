@@ -44,6 +44,7 @@ class SelectStyles extends Component {
 
     this.props.setGender(assistantGender);
     this.props.setColor(colorScheme);
+    this.props.history.push("/third-step");
   };
 
   render() {

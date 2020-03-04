@@ -26,7 +26,7 @@ class NameYourAssistant extends Component {
           <img src={logo} alt="Logo" />
           <img src={text_logo} alt="Text logo" />
         </div>
-        <h4>Name your assistant</h4>
+        <h3>Name your assistant</h3>
         <div className="set-name">
           <input type="text" onChange={this.onChange} autoFocus />
         </div>
