@@ -10,3 +10,36 @@ body{
 h5{
   text-align: center;
 }
+
+@media screen and (max-width: 992px) {
+  .Sidebar{
+    width: 30%!important;
+  }
+  .Steps{
+    width: 70%!important;
+    .SelectStyles{
+      .color-scheme{
+        width: 40px!important;
+        height: 40px!important;
+      }
+
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .Sidebar{
+    width: 40%!important;
+  }
+  .Steps{
+    width: 60%!important;
+    .SelectStyles{
+      .color-scheme{
+        width: 20px!important;
+        height: 20px!important;
+        margin: 5px!important;
+      }
+
+    }
+  }
+}

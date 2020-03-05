@@ -44,7 +44,7 @@ class SignIn extends Component {
     const { isVisible, email, password, isError } = this.state;
 
     return (
-      <div className="CreateYourAccount">
+      <div className="SignInToYourAccount">
         <div>
           <h3>Sign in to your account</h3>
           <div className="google-sign-up">
