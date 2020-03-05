@@ -11,21 +11,22 @@ function LoggedInView({
   assistantName,
   assistantGender
 }) {
-
   const { female_logo, male_logo } = getCurrentSchemeIcons(schemeColor);
   const icon = assistantGender === "female" ? female_logo : male_logo;
 
   return (
     <div className="LoggedInView">
-      <div className="icons">
-        <img src={icon} alt="Hoory icon" />
-        <h3>{assistantName}</h3>
+      <div>
+        <div className="icons">
+          <img src={icon} alt="Hoory icon" />
+          <h3>{assistantName}</h3>
+        </div>
+        <h3>
+          {firstName}
+          {lastName}
+        </h3>
+        <p>{email}</p>
       </div>
-      <h3>
-        {firstName}
-        {lastName}
-      </h3>
-      <p>{email}</p>
     </div>
   );
 }

@@ -1,91 +1,113 @@
-.CreateYourAccount{
-  width: 35%;
-  h3{
-    text-align: center;
-  }
-  .google-sign-up{
-    cursor: pointer;
-    margin-top: 30px;
-    box-shadow: 0 0 15px #ddd;
-    background-color: #fff;
-    padding:10px;
-    text-align: center;
-    span{
-      vertical-align: super;
-      margin-left: 10px;
-    }
-  }
-  .sign-up-options-separator{
-    margin: 20px 0;
-    display: flex;
-    justify-content: center;
-    hr{
-      width: 50%;
-      border: none;
-      border-top: 2px solid #f7f7fa;
-    }
-    span{
-      margin: 0 10px;
-    }
-  }
+.CreateYourAccount {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
 
-  form {
-    div.full-name,div.email,div.password{
-      background-color: #f7f7fa;
-      margin-bottom: 10px;
-      padding: 10px 0;
-      border-radius: 10px;
-    }
-    input{
-      background-color: #f7f7fa;
-      border: 1px solid #f7f7fa;
-      padding: 5px 0;
-      padding-left: 15px;
-      box-sizing: border-box;
-      width: 100%;
-      outline: none;
-      font-size: 16px;
-    }
-    .full-name{
-      display: flex;
-      div{
-        width: 50%;
-      }
-      div:first-of-type input{
-        border-right: 2px solid #eaeaed;
-      }
-    }
-    .password{
-      display: flex;
-      img{
-        margin-right: 20px;
-      }
-    }
-    button{
-      width: 100%;
-      background-color: #00c67b;
-      padding: 10px;
-      font-size: 16px;
-      color: #fff;
-      cursor: pointer;
-      border-radius: 20px;
-      border: 1px solid #00c67b;
-      box-shadow: 1px 1px 7px #00c67b8f;
-    }
-    p.policy{
-      margin-top: 20px;
-      margin-bottom: 30px;
-    }
-    p{
-      font-size: 12px;
+  div {
+    h3 {
       text-align: center;
-      a{
-        font-weight: 600;
-        color: #000;
+    }
+
+    .google-sign-up {
+      cursor: pointer;
+      margin-top: 30px;
+      box-shadow: 0 0 15px #ddd;
+      background-color: #fff;
+      padding: 10px;
+      text-align: center;
+
+      span {
+        vertical-align: super;
+        margin-left: 10px;
       }
     }
-  }
-  input::placeholder{
-    color: #b4b4b6;
+
+    .sign-up-options-separator {
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+
+      hr {
+        width: 50%;
+        border: none;
+        border-top: 2px solid #f7f7fa;
+      }
+
+      span {
+        margin: 0 10px;
+      }
+    }
+
+    form {
+      div.full-name, div.email, div.password {
+        background-color: #f7f7fa;
+        margin-bottom: 10px;
+        padding: 10px 0;
+        border-radius: 10px;
+      }
+
+      input {
+        background-color: #f7f7fa;
+        border: 1px solid #f7f7fa;
+        padding: 5px 0;
+        padding-left: 15px;
+        box-sizing: border-box;
+        width: 100%;
+        outline: none;
+        font-size: 16px;
+      }
+
+      .full-name {
+        display: flex;
+
+        div {
+          width: 50%;
+        }
+
+        div:first-of-type input {
+          border-right: 2px solid #eaeaed;
+        }
+      }
+
+      .password {
+        display: flex;
+
+        img {
+          margin-right: 20px;
+        }
+      }
+
+      button {
+        width: 100%;
+        background-color: #00c67b;
+        padding: 10px;
+        font-size: 16px;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 20px;
+        border: 1px solid #00c67b;
+        box-shadow: 1px 1px 7px #00c67b8f;
+      }
+
+      p.policy {
+        margin-top: 20px;
+        margin-bottom: 30px;
+      }
+
+      p {
+        font-size: 12px;
+        text-align: center;
+
+        a {
+          font-weight: 600;
+          color: #000;
+        }
+      }
+    }
+
+    input::placeholder {
+      color: #b4b4b6;
+    }
   }
 }
