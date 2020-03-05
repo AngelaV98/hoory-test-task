@@ -22,7 +22,7 @@ function LoggedInView({
           <h3>{assistantName}</h3>
         </div>
         <h3>
-          {firstName}
+          {firstName}&nbsp;
           {lastName}
         </h3>
         <p>{email}</p>
