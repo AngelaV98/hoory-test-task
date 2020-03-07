@@ -92,6 +92,13 @@ function getCurrentSchemeIcons(colorScheme) {
         selected_male_logo_light_blue
       ];
       break;
+    default:
+      color = [
+        female_logo_blue,
+        male_logo_blue,
+        selected_female_logo_blue,
+        selected_male_logo_blue
+      ];
   }
   return {
     female_logo: color[0],

@@ -25,7 +25,7 @@ function Steps({
   assistantGender,
   signUp
 }) {
-  let content = <NameYourAssistant nextStep={nextStep} setName={setName} />;
+  let content;
 
   switch (step) {
     case 2:
@@ -45,6 +45,8 @@ function Steps({
     case 4:
       content = <SuccessfulSetup assistantName={assistantName} />;
       break;
+    default:
+      content = <NameYourAssistant nextStep={nextStep} setName={setName} />;
   }
   return <div className="Steps">{content}</div>;
 }
